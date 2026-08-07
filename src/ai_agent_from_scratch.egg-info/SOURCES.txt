@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/agent/__init__.py
+src/agent/cli.py
+src/agent/tools.py
+src/ai_agent_from_scratch.egg-info/PKG-INFO
+src/ai_agent_from_scratch.egg-info/SOURCES.txt
+src/ai_agent_from_scratch.egg-info/dependency_links.txt
+src/ai_agent_from_scratch.egg-info/entry_points.txt
+src/ai_agent_from_scratch.egg-info/requires.txt
+src/ai_agent_from_scratch.egg-info/top_level.txt
+tests/test_tools.py

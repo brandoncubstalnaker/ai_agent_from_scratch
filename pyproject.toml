@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai_agent_from_scratch"
+version = "0.1.0"
+dependencies = [
+    "python-dotenv",
+]
+
+[project.scripts]
+ai-agent = "agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
