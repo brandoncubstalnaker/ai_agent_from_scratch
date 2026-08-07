@@ -25,6 +25,18 @@ This project implements a **ReAct (Reasoning + Acting)** architecture, enabling 
 
 ---
 
+## CLI Usage
+
+Install locally in editable mode:
+```bash
+pip install -e .
+ai-agent --help
+ai-agent -p "25 * 4"
+```
+
+
+---
+
 ## Setup & Installation
 
 1. **Clone the repository:**
