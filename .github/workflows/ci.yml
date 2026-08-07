@@ -1,0 +1,34 @@
+yaml
+
+name: Agent CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-add-test:
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+
+    steps:
+    - name: Install dependencies in Fedora
+      run: dnf install -y python3 python3-pip git
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Python packages
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install pytest ruff python-dotenv
+    
+    - name: Run Ruff Linter
+      run: ruff check .
+
+    - name: Run Test Suite
+      run: PYTHONPATH=src pytest
+
