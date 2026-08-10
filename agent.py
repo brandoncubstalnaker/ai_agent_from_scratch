@@ -1,5 +1,6 @@
 from llm import LLMClient
 from tools import execute_tool, TOOLS
+from logger import log_step
 
 SYSTEM_PROMPT = """
 You are a helpful AI assistant with access to tools.
@@ -25,14 +26,24 @@ class Agent:
         self.llm = LLMClient()
 
     def run(self, user_query: str, max_turns: int = 5) -> str:
+        # Log the initial user query
+        log_step("user_query", {"query": user_query})
+
+
         history = f"{SYSTEM_PROMPT}\nUser: {user_query}\n"
 
         for _ in range(max_turns):
             response = self.llm.generate(history)
             history += f"{response}\n"
 
+            # Log LLM output (Thought / Action step)
+            log_step("llm_response", {"response": response.strip()})
+
             if "Final Answer:" in response:
-                return response.split("Final Answer:")[1].strip()
+                final_ans = response.split("Final Answer:")[1].strip()
+                log_step("final_answer", {"response": final_ans})
+                return final_ans
+
 
             if "Action:" in response and "Action Input:" in response:
                 lines = response.strip().split("\n")
@@ -47,7 +58,15 @@ class Agent:
                         tool_input = line.replace("Action Input:", "").strip()
 
                 if tool_name and tool_input is not None:
+                    # Log tool invocation before execution
+                    log_step("tool_call", {"tool": tool_name, "input": tool_input})
+
                     observation = execute_tool(tool_name, tool_input)
+
+                    #Log execution result
+                    log_step("observation", {"tool": tool_name, "result": observation})
+
+
                     history += f"Observation: {observation}\n"
         return "Reached maximum turn limit without a final answer."
 if __name__ == "__main__":
