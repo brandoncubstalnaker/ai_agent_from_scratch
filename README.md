@@ -1,5 +1,4 @@
 # Autonomous AI Agent from Scratch
-# Autonomous AI Agent from Scratch
 
 A lightweight, production-grade AI Agent framework in Python supporting both local open-weights LLMs (via Ollama) and cloud providers (Gemini/OpenAI).
 
@@ -63,5 +62,5 @@ ai-agent -p "25 * 4"
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/brandoncub2021-bot/ai_agent_from_scratch.git](https://github.com/brandoncub2021-bot/ai_agent_from_scratch.git)
+   git clone [https://github.com/brandoncubstalnaker/ai_agent_from_scratch.git](https://github.com/brandoncubstalnaker/ai_agent_from_scratch.git)
    cd ai_agent_from_scratch
