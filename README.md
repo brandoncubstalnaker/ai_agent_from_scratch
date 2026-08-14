@@ -1,4 +1,26 @@
 # Autonomous AI Agent from Scratch
+# Autonomous AI Agent from Scratch
+
+A lightweight, production-grade AI Agent framework in Python supporting both local open-weights LLMs (via Ollama) and cloud providers (Gemini/OpenAI).
+
+This project implements a **ReAct (Reasoning + Acting)** architecture with a modular **Strategy Pattern** provider layer, enabling the agent to autonomously evaluate prompts, execute dynamic tool calls, and fallback cleanly between local and cloud models.
+
+---
+
+## Key Features
+
+- **Custom ReAct Loop:** Multi-turn autonomous execution cycle (`Thought` -> `Action` -> `Observation` -> `Final Answer`).
+- **Decoupled Provider Architecture:** Strategy Pattern interface allowing hot-swappable execution between local models (Llama 3.2, Mistral) and cloud APIs.
+- **Non-Blocking Async Streaming:** Built with `httpx.AsyncClient` utilizing HTTP chunked transfer encoding (`aiter_lines()`) to parse NDJSON streams token-by-token.
+- **Fault-Tolerant Daemon Health Guards:** Proactive HTTP service checks and mid-stream socket error recovery (`RemoteProtocolError`, `ReadTimeout`).
+- **Dynamic Tool Execution:** Integrated functions for calculator evaluation and runtime tool calling.
+- **Secure Configuration:** Environment variable management to prevent API key exposure.
+
+---
+
+## 🏗️ Provider Architecture
+
+
 
 A lightweight, custom-built AI Agent framework in Python using the official `google-genai` SDK and Gemini models. 
 
