@@ -56,7 +56,12 @@ ai-agent --help
 ai-agent -p "25 * 4"
 ```
 
+## 🚀 Setup & Usage
 
+### 1. Install & Serve Local LLM (Ollama)
+```bash
+curl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh
+ollama pull llama3.2
 ---
 
 ## Setup & Installation
