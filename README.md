@@ -38,10 +38,11 @@ This project implements a **ReAct (Reasoning + Acting)** architecture, enabling 
 
 ## Project Structure
 
-- `config.py` - API key configuration and environment loading.
-- `llm.py` - Core client wrapper for the Google GenAI SDK.
+- `providers.py` - Strategy pattern interfaces and Ollama/Cloud provider implementations.
+- `config.py` - API key configuration and environment variable loading.
 - `tools.py` - Tool definitions and function execution registry.
 - `agent.py` - System prompt and ReAct reasoning engine loop.
+- `test_agent.py` - Async verification script for local LLM streaming.
 - `main.py` - Interactive command-line interface.
 
 ---
